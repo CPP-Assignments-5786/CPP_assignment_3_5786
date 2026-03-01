@@ -98,6 +98,18 @@ TEST_CASE("Book - getCategory Method") {
     CHECK(long_book.getCategory() == "Long");
 }
 
+TEST_CASE("Book - getCategory Boundary Values") {
+    Book at199("B", "A", "ISBN", 199);
+    Book at200("B", "A", "ISBN", 200);
+    Book at500("B", "A", "ISBN", 500);
+    Book at501("B", "A", "ISBN", 501);
+    
+    CHECK(at199.getCategory() == "Short");   // < 200 is Short
+    CHECK(at200.getCategory() == "Medium");  // 200 is Medium
+    CHECK(at500.getCategory() == "Medium");  // 500 is Medium
+    CHECK(at501.getCategory() == "Long");    // > 500 is Long
+}
+
 TEST_CASE("Book - Reference Return (getAuthorReference)") {
     Book b("Test", "Original Author", "ISBN", 200);
     
@@ -212,7 +224,7 @@ TEST_CASE("LibraryCard - Return Book by Title") {
     
     CHECK(card.returnBook("Target Book"));
     CHECK(card.getBorrowCount() == 1);
-    CHECK_FALSE(card. returnBook("Nonexistent"));
+    CHECK_FALSE(card.returnBook("Nonexistent"));
 }
 
 TEST_CASE("LibraryCard - Find Borrowed Book") {
@@ -238,7 +250,7 @@ TEST_CASE("LibraryCard - Get Total Borrowed Pages") {
     card.borrowBook(b2);
     card.borrowBook(b3);
     
-    CHECK(card. getTotalBorrowedPages() == 600);
+    CHECK(card.getTotalBorrowedPages() == 600);
 }
 
 TEST_CASE("LibraryCard - Copy Constructor (Deep Copy & Destruct-Arrays)") {
@@ -274,7 +286,7 @@ TEST_CASE("LibraryCard - Static Members") {
     LibraryCard c1("Member1", "ID1");
     LibraryCard c2("Member2", "ID2");
     
-    CHECK(LibraryCard:: getTotalCardsIssued() == initialCount + 2);
+    CHECK(LibraryCard::getTotalCardsIssued() == initialCount + 2);
 }
 
 TEST_CASE("LibraryCard - Friend Function (compareByBorrowCount)") {
@@ -314,7 +326,7 @@ TEST_CASE("Integration - Complete Library Workflow") {
     LibraryCard card("Test Member", "MEM-100", 3);
     
     // Borrow books
-    card. borrowBook(b1);
+    card.borrowBook(b1);
     card.borrowBook(b2);
     
     CHECK(card.getBorrowCount() == 2);

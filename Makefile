@@ -16,14 +16,14 @@ test: TestRunner.o $(OBJECTS)
 TestRunner.o: test.cpp Book.hpp LibraryCard.hpp doctest.h
 	$(CXX) $(CXXFLAGS) --compile test.cpp -o TestRunner.o
 
-%. o: %.cpp
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) --compile $< -o $@
 
-Book.o: Book.cpp Book. hpp
+Book.o: Book.cpp Book.hpp
 
 LibraryCard.o: LibraryCard.cpp LibraryCard.hpp Book.hpp
 
-main.o: main.cpp Book. hpp LibraryCard.hpp
+main.o: main.cpp Book.hpp LibraryCard.hpp
 
 clean:
 	rm -f *.o demo test

@@ -49,8 +49,8 @@
 
 ### קבצים שעליכם ליצור ולממש:
 
-- **Book.cpp** — מימוש מחלקת `Book`: בנאים, מפרק, מתודות getter ו-setter, מתודות עזר (`isLargeBook`, `getCategory`, `getInfo`, `print`) ופונקציות חברות (`compareByPages`, `haveSameAuthor`)
-- **LibraryCard.cpp** — מימוש מחלקת `LibraryCard`: בנאים (כולל בנאי העתקה עמוקה), מפרק עם שחרור נכון של המערך הדינמי, ניהול רשימת הספרים השאולים (`borrowBook`, `returnBook`, `findBorrowedBook`) ופונקציית חבר (`compareByBorrowCount`)
+- **Book.cpp** — מימוש מחלקת `Book`: בנאים, מפרק, מתודות getter ו-setter, מתודות עזר (`isLargeBook` — מחזירה `true` אם מספר העמודים גדול מ-500, `getCategory` — מחזירה `"Short"` אם מספר העמודים קטן מ-200, `"Medium"` אם בין 200 ל-500, `"Long"` אם גדול מ-500, `getInfo`, `print` — בפורמט `"Title by AuthorName | ISBN | Pages pages | Available/Borrowed"`) ופונקציות חברות (`compareByPages`, `haveSameAuthor`)
+- **LibraryCard.cpp** — מימוש מחלקת `LibraryCard`: בנאים (כולל בנאי העתקה עמוקה), מפרק עם שחרור נכון של המערך הדינמי, ניהול רשימת הספרים השאולים (`borrowBook` — מכפיל את הקיבולת כאשר המערך מלא, `returnBook`, `findBorrowedBook`) ופונקציית חבר (`compareByBorrowCount`)
 
 ## הוראות קימפול והרצה
 

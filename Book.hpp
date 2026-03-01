@@ -72,7 +72,7 @@ namespace library {
          * @param isbn ISBN number
          * @param pages Number of pages
          */
-        Book(const std:: string& title, const std::string& authorName, 
+        Book(const std::string& title, const std::string& authorName, 
              const std::string& isbn, int pages);
 
         /**
@@ -159,7 +159,7 @@ namespace library {
          * Demonstrates function overloading
          * @param authorName Author's name
          */
-        void setAuthor(const std:: string& authorName);
+        void setAuthor(const std::string& authorName);
 
         /**
          * @brief Set author - overloaded version 2
@@ -198,18 +198,23 @@ namespace library {
 
         /**
          * @brief Get book category based on pages - const method
+         * - "Short" if pages < 200
+         * - "Medium" if 200 <= pages <= 500
+         * - "Long" if pages > 500
          * @return "Short", "Medium", or "Long"
          */
         std::string getCategory() const;
 
         /**
          * @brief Get book info string - const method
+         * Format: "Title by AuthorName | ISBN | Pages pages | Available/Borrowed"
          * @return Formatted string with book details
          */
         std::string getInfo() const;
 
         /**
          * @brief Print book details to stream
+         * Format: "Title by AuthorName | ISBN | Pages pages | Available/Borrowed"
          * NOT operator overloading - just a regular method
          * @param os Output stream
          */
