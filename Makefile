@@ -1,5 +1,3 @@
-#! make -f
-
 CXX=g++
 CXXFLAGS=-std=c++17 -Werror -Wsign-conversion
 SOURCES=Book.cpp LibraryCard.cpp

@@ -1,20 +1,6 @@
 /**
  * @file main.cpp
  * @brief Demo for Library Book Management System
- * 
- * This demo showcases all the required C++ concepts:
- * 1. Composition
- * 2. Reference
- * 3. Reference-return
- * 4. Const-methods
- * 5. Friend-functions
- * 6. Overloading (not operators)
- * 7. Inline-outline-files
- * 8. Inline-outline
- * 9. Static
- * 10. Constructors
- * 11. Destructors
- * 12. Destruct-arrays
  */
 
 #include <iostream>
