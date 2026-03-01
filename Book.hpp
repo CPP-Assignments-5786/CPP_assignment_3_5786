@@ -26,14 +26,6 @@ namespace library {
     /**
      * @brief Author struct - demonstrates composition
      * Book will contain (compose) an Author object
-     * 
-     * IMPLEMENTATION NOTE FOR STUDENTS:
-     * This struct is provided as-is. In your Book. cpp implementation,
-     * you will CREATE Author objects and store them in the Book's private member. 
-     * Example in Book.cpp:
-     *   this->author = Author(authorName, "Unknown", 0);
-     * or: 
-     *   this->author = authorParam;
      */
     struct Author {
         std::string name;
@@ -54,7 +46,6 @@ namespace library {
     private:
         std::string title;
         Author author;              // COMPOSITION: Book HAS-A Author
-                                    // Students will initialize this in constructors
         std::string isbn;
         int pages;
         bool isAvailable;
@@ -71,7 +62,6 @@ namespace library {
         /**
          * @brief Default constructor
          * Creates an "Unknown" book with default author
-         * STUDENTS: Initialize author using default Author constructor
          */
         Book();
 
@@ -81,8 +71,6 @@ namespace library {
          * @param authorName Author's name
          * @param isbn ISBN number
          * @param pages Number of pages
-         * STUDENTS: Create an Author object with just the name: 
-         *   this->author = Author(authorName, "Unknown", 0);
          */
         Book(const std:: string& title, const std::string& authorName, 
              const std::string& isbn, int pages);
@@ -94,8 +82,6 @@ namespace library {
          * @param author Complete Author object (COMPOSITION parameter)
          * @param isbn ISBN number
          * @param pages Number of pages
-         * STUDENTS:  Store the author object: 
-         *   this->author = author;
          */
         Book(const std::string& title, const Author& author, 
              const std::string& isbn, int pages);
@@ -103,8 +89,6 @@ namespace library {
         /**
          * @brief Copy constructor
          * @param other The book to copy from
-         * STUDENTS: Copy the author object:
-         *   this->author = other.author;
          */
         Book(const Book& other);
 
@@ -119,7 +103,6 @@ namespace library {
         /**
          * @brief Get book title - const method
          * @return The title
-         * INLINE IMPLEMENTATION in header file
          */
         inline std::string getTitle() const {
             return title;
@@ -128,7 +111,6 @@ namespace library {
         /**
          * @brief Get ISBN - const method
          * @return The ISBN
-         * INLINE IMPLEMENTATION in header file
          */
         inline std::string getISBN() const {
             return isbn;
@@ -137,7 +119,6 @@ namespace library {
         /**
          * @brief Get number of pages - const method
          * @return Number of pages
-         * INLINE IMPLEMENTATION in header file
          */
         inline int getPages() const {
             return pages;
@@ -146,7 +127,6 @@ namespace library {
         /**
          * @brief Check if book is available - const method
          * @return true if available for borrowing
-         * INLINE IMPLEMENTATION in header file
          */
         inline bool getAvailability() const {
             return isAvailable;
@@ -156,19 +136,13 @@ namespace library {
 
         /**
          * @brief Get author object by reference - const method
-         * Demonstrates:  reference-return, const method
          * @return Const reference to the Author object
-         * OUTLINE IMPLEMENTATION in .cpp file
-         * STUDENTS: return this->author;
          */
         const Author& getAuthor() const;
 
         /**
          * @brief Get author name - const method
          * @return Author's name
-         * OUTLINE IMPLEMENTATION in .cpp file
-         * STUDENTS: Access composed object's member: 
-         *   return this->author.name;
          */
         std::string getAuthorName() const;
 
@@ -177,7 +151,6 @@ namespace library {
         /**
          * @brief Set book title
          * @param title New title
-         * OUTLINE IMPLEMENTATION in . cpp file
          */
         void setTitle(const std::string& title);
 
@@ -185,11 +158,6 @@ namespace library {
          * @brief Set author - overloaded version 1
          * Demonstrates function overloading
          * @param authorName Author's name
-         * OUTLINE IMPLEMENTATION in .cpp file
-         * STUDENTS: Update the composed Author object:
-         *   this->author.name = authorName;
-         * or create new Author: 
-         *   this->author = Author(authorName, "Unknown", 0);
          */
         void setAuthor(const std:: string& authorName);
 
@@ -197,16 +165,12 @@ namespace library {
          * @brief Set author - overloaded version 2
          * Demonstrates function overloading
          * @param author Complete Author object
-         * OUTLINE IMPLEMENTATION in .cpp file
-         * STUDENTS: Replace the composed Author object:
-         *   this->author = author;
          */
         void setAuthor(const Author& author);
 
         /**
          * @brief Set availability status
          * @param available New availability status
-         * OUTLINE IMPLEMENTATION in .cpp file
          */
         void setAvailability(bool available);
 
@@ -229,21 +193,18 @@ namespace library {
         /**
          * @brief Check if this is a large book - const method
          * @return true if pages > 500
-         * OUTLINE IMPLEMENTATION in .cpp file
          */
         bool isLargeBook() const;
 
         /**
          * @brief Get book category based on pages - const method
          * @return "Short", "Medium", or "Long"
-         * OUTLINE IMPLEMENTATION in .cpp file
          */
         std::string getCategory() const;
 
         /**
          * @brief Get book info string - const method
          * @return Formatted string with book details
-         * OUTLINE IMPLEMENTATION in .cpp file
          */
         std::string getInfo() const;
 
@@ -251,9 +212,6 @@ namespace library {
          * @brief Print book details to stream
          * NOT operator overloading - just a regular method
          * @param os Output stream
-         * OUTLINE IMPLEMENTATION in .cpp file
-         * STUDENTS: Access composed author: 
-         *   os << title << " by " << author.name << " | " << pages << " pages";
          */
         void print(std::ostream& os) const;
 
@@ -261,11 +219,7 @@ namespace library {
 
         /**
          * @brief Get mutable reference to author
-         * Demonstrates:  reference-return (non-const)
-         * Allows modification of the author through the returned reference
          * @return Reference to Author object
-         * OUTLINE IMPLEMENTATION in .cpp file
-         * STUDENTS: return this->author;
          */
         Author& getAuthorReference();
 
@@ -277,8 +231,6 @@ namespace library {
          * @param b1 First book
          * @param b2 Second book
          * @return true if b1 has more pages than b2
-         * STUDENTS: Access private members and composed objects:
-         *   return b1.pages > b2.pages;
          */
         friend bool compareByPages(const Book& b1, const Book& b2);
 
@@ -288,8 +240,6 @@ namespace library {
          * @param b1 First book
          * @param b2 Second book
          * @return true if same author name
-         * STUDENTS: Access composed objects through private members:
-         *   return b1.author.name == b2.author.name;
          */
         friend bool haveSameAuthor(const Book& b1, const Book& b2);
 
