@@ -199,7 +199,7 @@ int main() {
         tempCard2.borrowBook(book5);
         tempCard2.borrowBook(book6);
         
-        cout << "Total cards issued: " << LibraryCard:: getTotalCardsIssued() << endl;
+        cout << "Total cards issued: " << LibraryCard::getTotalCardsIssued() << endl;
         // Expected: At least 3
         
         cout << "Exiting scope - destructors will be called..." << endl;
@@ -226,8 +226,8 @@ int main() {
     // ============ 12. FINAL STATISTICS ============
     cout << "=== 12. FINAL STATISTICS ===" << endl;
     cout << "Total books ever created: " << Book::getTotalBooksCreated() << endl;
-    cout << "Current books in memory: " << Book:: getCurrentBookCount() << endl;
-    cout << "Total library cards issued: " << LibraryCard:: getTotalCardsIssued() << endl;
+    cout << "Current books in memory: " << Book::getCurrentBookCount() << endl;
+    cout << "Total library cards issued: " << LibraryCard::getTotalCardsIssued() << endl;
     
     cout << "\n========================================" << endl;
     cout << "       Demo Complete!" << endl;
