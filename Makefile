@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS=-std=c++17 -Werror -Wsign-conversion
+CXXFLAGS=-std=c++23 -Werror -Wsign-conversion
 SOURCES=Book.cpp LibraryCard.cpp
 OBJECTS=$(subst .cpp,.o,$(SOURCES))
 
