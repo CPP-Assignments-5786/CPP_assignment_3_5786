@@ -5,6 +5,7 @@
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
+#include <fstream>
 #include "Book.hpp"
 #include "LibraryCard.hpp"
 
@@ -340,4 +341,9 @@ TEST_CASE("Integration - Complete Library Workflow") {
     Book* found = card.findBorrowedBook("Book 2");
     CHECK(found != nullptr);
     CHECK(found->getPages() == 350);
+}
+
+TEST_CASE("Student custom tests file exists") {
+    std::ifstream f("StudentTest.cpp");
+    CHECK_MESSAGE(f.good(), "StudentTest.cpp file must be created by the student");
 }
